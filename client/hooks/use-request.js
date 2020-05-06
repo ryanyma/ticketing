@@ -12,15 +12,17 @@ export default ({ url, method, body, onSuccess }) => {
       if (onSuccess) {
         onSuccess(response.data);
       }
+
       return response.data;
     } catch (err) {
       setErrors(
         <div className="alert alert-danger">
-          <h4>Opps</h4>
+          <h4>Ooops....</h4>
           <ul className="my-0">
-            {err.response.data.errors.map((err) => (
-              <li key={err.message}>{err.message}</li>
-            ))}
+            {err.response &&
+              err.response.data.errors.map((err) => (
+                <li key={err.message}>{err.message}</li>
+              ))}
           </ul>
         </div>
       );
