@@ -16,7 +16,6 @@ beforeAll(async () => {
   process.env.JWT_KEY = "asdfewff";
   mongo = new MongoMemoryServer();
   const mongoUri = await mongo.getUri();
-
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
